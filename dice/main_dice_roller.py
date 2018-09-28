@@ -1,4 +1,4 @@
-from stage_function_w_all_dictionaries import Stage
+from stage_function import Stage
 from count_and_slice_functions import Count
 from count_and_slice_functions import Slice
 import json
