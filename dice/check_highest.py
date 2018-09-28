@@ -1,30 +1,26 @@
+highest_results_dictionary = {  
+'d4s_highest':0,
+'d6s_highest':0,
+'d8s_highest':0,
+'d10s_highest':0,
+'d12s_highest':0,
+'d20s_highest':0,
+'d4_hits':0,
+'d6_hits':0,
+'d8_hits':0,
+'d10_hits':0,   
+'d12_hits':0,
+'d20_hits':0,  
+'quint_hit':0, 
+'quad_hit':0,
+'triple_hit':0,
+'double_hit':0,
+'max_highest':0}
+
 def CheckHighest(d4s, d6s, d8s, d10s, d12s, d20s):
     #print('made it to check highest')
     #checking for the highest roll of the bunch
-    '''
-    def ClearHighest():
-            highest_results_dictionary.clear()
-            #print('clearing highest: %s' % highest_results_dictionary)      
-    '''
-    highest_results_dictionary = {  
-    'd4s_highest':0,
-    'd6s_highest':0,
-    'd8s_highest':0,
-    'd10s_highest':0,
-    'd12s_highest':0,
-    'd20s_highest':0,
-    'd4_hits':0,
-    'd6_hits':0,
-    'd8_hits':0,
-    'd10_hits':0,   
-    'd12_hits':0,
-    'd20_hits':0,  
-    'quint_hit':0, 
-    'quad_hit':0,
-    'triple_hit':0,
-    'double_hit':0,
-    'max_highest':0}
-   
+
     max_highest = 0
     
     #we want to know which dice had the highest roll (the 'hit')
@@ -51,15 +47,6 @@ def CheckHighest(d4s, d6s, d8s, d10s, d12s, d20s):
     d12s_highest = max(d12s, default=0)
     d20s_highest = max(d20s, default=0)
     
-    '''
-    print(d4s_highest) 
-    print(d6s_highest) 
-    print(d8s_highest) 
-    print(d10s_highest) 
-    print(d12s_highest) 
-    print(d20s_highest) 
-    '''
-
     #highest_rolls is a list of all the highest rolls combined
     highest_rolls = [d4s_highest, d6s_highest, d8s_highest, d10s_highest, d12s_highest, d20s_highest]
     #print(highest_rolls)
@@ -123,13 +110,11 @@ def CheckHighest(d4s, d6s, d8s, d10s, d12s, d20s):
         #print('this is the value: %s' % v)
         if highest_results_list[list_counter] != 0:
             #print('this is the highest results list: %s' % highest_results_list[list_counter])
-            highest_results_dictionary[k] += 1
+            highest_results_dictionary[k] += highest_results_list[list_counter]
         list_counter += 1 
 
     highest_return_dictionary = highest_results_dictionary
-    '''
-    ClearHighest()
-    '''
+
     return(highest_return_dictionary)
     
     
