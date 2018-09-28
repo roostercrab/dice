@@ -67,9 +67,8 @@ def StartRolls(number_of_rolls):
     
     
     #this is the number of variations of 6 types of dice and 7 levels of qty (including blanks) 6^7 = 279936
-    i = 0
     dice_combo_variations = 279936
-    while i < dice_combo_variations:
+    for loops in range(dice_combo_variations):
         
         staged_dicelist = []
         nameslist = []
@@ -95,7 +94,7 @@ def StartRolls(number_of_rolls):
       
         #populates the d*_to_roll variables from the slicelist that will determine which Dice objects to roll from dicelist
         d4_to_roll, d6_to_roll, d8_to_roll, d10_to_roll, d12_to_roll, d20_to_roll = slicelist_result
-        print('Going to roll d4: %s, d6: %s, d8: %s, d10: %s, d12: %s, d20: %s' % (d4_to_roll, d6_to_roll, d8_to_roll, d10_to_roll, d12_to_roll, d20_to_roll))
+        #print('Going to roll d4: %s, d6: %s, d8: %s, d10: %s, d12: %s, d20: %s' % (d4_to_roll, d6_to_roll, d8_to_roll, d10_to_roll, d12_to_roll, d20_to_roll))
         
         #puts actual dice objects into staged dicelist, blank could be inserted if the count is 0 but the roll function is done off positional numbers at the moment so can't just yet...
         if d4_to_roll != 0:
@@ -140,9 +139,7 @@ def StartRolls(number_of_rolls):
         with open("results.txt", "a+") as file:
             file.write(roll_name + (json.dumps(final_result)) + '\n')
 
-        print('this is the final result: %s - %s' % (roll_name, final_result))
-        
-        i += 1 
+        print(roll_name, final_result)
 
 if __name__ == "__main__":
     number_of_rolls = int(input('How many rolls? '))

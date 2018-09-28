@@ -33,7 +33,7 @@ def Count(d4_count, d6_count, d8_count, d10_count, d12_count, d20_count):
                                 print("complete")
                                 
         countlist = [d4_count, d6_count, d8_count, d10_count, d12_count, d20_count]
-        print(countlist)
+        #print(countlist)
         
     #test_i += 1
         
@@ -72,6 +72,6 @@ def Slice(d4_count, d6_count, d8_count, d10_count, d12_count, d20_count):
         d20_slice += 30
 
     slicelist = [d4_slice, d6_slice, d8_slice, d10_slice, d12_slice, d20_slice]
-    print("Slice: d4s: %s  d6s: %s  d8s: %s d10s: %s  d12s: %s d20s: %s" % (d4_slice, d6_slice, d8_slice, d10_slice, d12_slice, d20_slice))
+    #print("Slice: d4s: %s  d6s: %s  d8s: %s d10s: %s  d12s: %s d20s: %s" % (d4_slice, d6_slice, d8_slice, d10_slice, d12_slice, d20_slice))
         
     return(slicelist)

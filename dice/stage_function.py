@@ -19,14 +19,13 @@ def Stage(staged_dicelist, number_of_rolls):
         d10s = Roll(staged_dicelist[3])
         d12s = Roll(staged_dicelist[4])
         d20s = Roll(staged_dicelist[5])
-        highest_results_list = CheckHighest(d4s,d6s,d8s,d10s,d12s,d20s)
-        print('this is the highest: %s' % highest_results_list)        
+        highest_results_dictionary = CheckHighest(d4s,d6s,d8s,d10s,d12s,d20s)
+        #print('this is the highest: %s' % highest_results_dictionary)        
         
     
-    final_return = {
-        'highest_result':highest_results_list}    
+    final_return = {'highest_result':highest_results_dictionary}    
  
-    print('this is the final_return: %s' % final_return)
+    #print('this is the final_return: %s' % final_return)
     
     return(final_return)
     
