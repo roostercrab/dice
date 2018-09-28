@@ -68,7 +68,7 @@ def StartRolls(number_of_rolls):
     
     #this is the number of variations of 6 types of dice and 7 levels of qty (including blanks) 6^7 = 279936
     dice_combo_variations = 279936
-    for loops in range(dice_combo_variations):
+    for variations in range(dice_combo_variations):
         
         staged_dicelist = []
         nameslist = []
