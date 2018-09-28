@@ -143,3 +143,7 @@ def StartRolls(number_of_rolls):
         print('this is the final result: %s - %s' % (roll_name, final_result))
         
         i += 1 
+
+if __name__ == "__main__":
+    number_of_rolls = int(input('How many rolls? '))
+    StartRolls(number_of_rolls)

@@ -1,4 +1,10 @@
-
+single_crits_results = {
+'d4_single_crit':0,
+'d6_single_crit':0,
+'d8_single_crit':0,
+'d10_single_crit':0,
+'d12_single_crit':0,
+'d20_single_crit':0}
 
 def CheckSingleCrits(d4s, d6s, d8s, d10s, d12s, d20s):
     ##print('made it to check single crits')
