@@ -1,5 +1,6 @@
-def DupsCheck():
-    all_dice_rolls = [1,2,2,3,3,3,4,4,4,4,5,5,5,5,5,6,7,8]
+def CheckDups(all_dice_rolls):
+    
+    #all_dice_rolls = [1,2,2,3,3,3,4,4,4,4,5,5,5,5,5,6,7,8]
     doubles = 0
     triples = 0
     quadruples = 0
@@ -47,12 +48,20 @@ def DupsCheck():
         number_to_check += 1
         list_position += 1
 
-    print('this is doubles: %s' % doubles)
-    print('this is triples: %s' % triples)
-    print('this is quadruples: %s' % quadruples)
-    print('this is quintuples: %s' % quintuples)
-    print('this is sixtuples: %s' % sixtuples)
+    multiples_total = [
+    doubles,
+    triples,
+    quadruples,
+    quintuples,
+    sixtuples,
+    sentuples,
+    octuples]
 
+    multiples_return = multiples_total + doubles_per_number + triples_per_number + quadruples_per_number + quintuples_per_number + sixtuples_per_number + sentuples_per_number + octuples_per_number
 
-if __name__ == "__main__":
-    DupsCheck()
+    print(multiples_return)
+
+    return()
+
+#if __name__ == "__main__":
+#    CheckDups()
