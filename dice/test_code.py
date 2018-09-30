@@ -1,17 +1,15 @@
-
-dictionary_with_values = {'a':0, 'b':0, 'c':0, 'd':0, 'e':0, 'f':0 }
-
-list_to_check = [4,5,3,4,5,3]
+max_highest = int(input('what is the highest roll? '))
+other_list = [1,1,1,1,1,1,1]
+which_number_hit = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 
 list_counter = 0
-for k, v in dictionary_with_values.items():
-    if list_to_check[list_counter] == 4: 
-        dictionary_with_values[k] += 1
+for number in range(1,21):
+    if max_highest == number:
+        which_number_hit[list_counter] += 1
+        break
+    else:
+        list_counter +=1    
 
-    list_counter += 1
-    
-print(dictionary_with_values)
+output = other_list + which_number_hit
 
-dictionary_with_values.clear()
-
-print(dictionary_with_values)
+print(output)
