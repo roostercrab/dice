@@ -47,12 +47,4 @@ def DupsCheck():
         number_to_check += 1
         list_position += 1
 
-    print('this is doubles: %s' % doubles)
-    print('this is triples: %s' % triples)
-    print('this is quadruples: %s' % quadruples)
-    print('this is quintuples: %s' % quintuples)
-    print('this is sixtuples: %s' % sixtuples)
 
-
-if __name__ == "__main__":
-    DupsCheck()

@@ -1,21 +1,12 @@
 from check_highest import CheckHighest
 from check_dups import CheckDups
+from check_count import CheckCount
 from master_roll import Roll
 import json
 
 def Stage(roll_name,staged_dicelist,number_of_rolls):
  
-    highest_results_dictionary = {  
-    'd4_hits':0,
-    'd6_hits':0,
-    'd8_hits':0,
-    'd10_hits':0,   
-    'd12_hits':0,
-    'd20_hits':0,  
-    'double_hit':0,
-    'triple_hit':0,
-    'quad_hit':0,
-    'quint_hit':0, 
+    rolled_count_dictionary = {
     '1s':0,
     '2s':0,
     '3s':0,
@@ -36,6 +27,38 @@ def Stage(roll_name,staged_dicelist,number_of_rolls):
     '18s':0,
     '19s':0,
     '20s':0}
+    
+    highest_results_dictionary = {  
+    'd4_hits':0,
+    'd6_hits':0,
+    'd8_hits':0,
+    'd10_hits':0,   
+    'd12_hits':0,
+    'd20_hits':0,  
+    'double_hit':0,
+    'triple_hit':0,
+    'quad_hit':0,
+    'quint_hit':0, 
+    'hit_on_1s':0,
+    'hit_on_2s':0,
+    'hit_on_3s':0,
+    'hit_on_4s':0,
+    'hit_on_5s':0,
+    'hit_on_6s':0,
+    'hit_on_7s':0,
+    'hit_on_8s':0,
+    'hit_on_9s':0,
+    'hit_on_10s':0,
+    'hit_on_11s':0,
+    'hit_on_12s':0,
+    'hit_on_13s':0,
+    'hit_on_14s':0,
+    'hit_on_15s':0,
+    'hit_on_16s':0,
+    'hit_on_17s':0,
+    'hit_on_18s':0,
+    'hit_on_19s':0,
+    'hit_on_20s':0}
 
     dups_results_dictionary = {
     'doubles':0,
@@ -210,6 +233,15 @@ def Stage(roll_name,staged_dicelist,number_of_rolls):
         highest_results_list = CheckHighest(d4s,d6s,d8s,d10s,d12s,d20s)
         all_dice_rolls = d4s + d6s + d8s + d10s + d12s + d20s 
         multiples_return_list = CheckDups(all_dice_rolls)
+        count_return_list = CheckCount(all_dice_rolls)
+
+        # zip rolled numbers count list into rolled count dictionary
+        list_counter = 0  
+        for k, v in rolled_count_dictionary.items():
+            if count_return_list[list_counter] != 0:
+                increase = count_return_list[list_counter]
+                rolled_count_dictionary[k] += increase
+            list_counter += 1
 
         # zip highest list into highest dictionary
         list_counter = 0  
@@ -223,11 +255,15 @@ def Stage(roll_name,staged_dicelist,number_of_rolls):
         for k, v in dups_results_dictionary.items():
             if multiples_return_list[list_counter] != 0:
                 dups_results_dictionary[k] += multiples_return_list[list_counter]
-            list_counter += 1 
-  
+            list_counter += 1
 
+    final_output = {}
+    final_output.update(rolled_count_dictionary) 
+    final_output.update(highest_results_dictionary)
+    final_output.update(dups_results_dictionary)
+    
     with open("results.txt", "a+") as file:
-        file.write(roll_name + (json.dumps(highest_results_dictionary)) + '\n')
+        file.write(roll_name + (json.dumps(final_output)) + '\n')
     
     return()
 

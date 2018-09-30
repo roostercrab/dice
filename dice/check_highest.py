@@ -85,5 +85,5 @@ def CheckHighest(d4s, d6s, d8s, d10s, d12s, d20s):
     quad_hit,
     quint_hit] + which_number_hit  
 
-    print(highest_results_list)
+    #print(highest_results_list)
     return(highest_results_list)
