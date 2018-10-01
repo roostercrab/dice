@@ -1,9 +1,7 @@
-from stage_function_w_all_dictionaries import Stage
+from stage import Stage
 from count_and_slice_functions import Count
 from count_and_slice_functions import Slice
-import json
 
-#define the dice
 class Dice():
     """these are the dice to roll"""
     def __init__(d, qty, sides):
@@ -54,7 +52,6 @@ q6d20 = Dice(6, 20)
 dicelist = [blank, q1d4, q2d4, q3d4, q4d4, q5d4, q6d4, q1d6, q2d6, q3d6, q4d6, q5d6, q6d6, q1d8, q2d8, q3d8, q4d8, q5d8, q6d8, q1d10, q2d10, q3d10, q4d10, q5d10, q6d10, q1d12, q2d12, q3d12, q4d12, q5d12, q6d12, q1d20, q2d20, q3d20, q4d20, q5d20, q6d20]
 #blank was orignally in here to prevent the list from counting from 0 but now it's also to roll nothings when needed in the count
 
-
 def StartRolls(number_of_rolls):
     
     #initialize the count
@@ -67,9 +64,8 @@ def StartRolls(number_of_rolls):
     
     
     #this is the number of variations of 6 types of dice and 7 levels of qty (including blanks) 6^7 = 279936
-    i = 0
     dice_combo_variations = 279936
-    while i < dice_combo_variations:
+    for variations in range(dice_combo_variations):
         
         staged_dicelist = []
         nameslist = []
@@ -95,7 +91,6 @@ def StartRolls(number_of_rolls):
       
         #populates the d*_to_roll variables from the slicelist that will determine which Dice objects to roll from dicelist
         d4_to_roll, d6_to_roll, d8_to_roll, d10_to_roll, d12_to_roll, d20_to_roll = slicelist_result
-        print('Going to roll d4: %s, d6: %s, d8: %s, d10: %s, d12: %s, d20: %s' % (d4_to_roll, d6_to_roll, d8_to_roll, d10_to_roll, d12_to_roll, d20_to_roll))
         
         #puts actual dice objects into staged dicelist, blank could be inserted if the count is 0 but the roll function is done off positional numbers at the moment so can't just yet...
         if d4_to_roll != 0:
@@ -134,12 +129,9 @@ def StartRolls(number_of_rolls):
             roll_name = ' '.join(nameslist)
             
         #print('this is the staged dicelist: %s' % staged_dicelist)       
-        final_result = Stage(staged_dicelist, number_of_rolls)    
-        
-        #this will write the file called results.txt
-        with open("results.txt", "a+") as file:
-            file.write(roll_name + (json.dumps(final_result)) + '\n')
+        Stage(roll_name, staged_dicelist, number_of_rolls)    
+        #print(roll_name, final_result)
 
-        print('this is the final result: %s - %s' % (roll_name, final_result))
-        
-        i += 1 
+if __name__ == "__main__":
+    number_of_rolls = int(input('How many rolls? '))
+    StartRolls(number_of_rolls)    
